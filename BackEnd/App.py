@@ -14,7 +14,7 @@ class app:
         self.usuario = None
     
     def obtenerUsuario (self, nombre) -> bool:
-        direccion_usuarios = f"{self.dir}/Datos/Usuarios.csv"
+        direccion_usuarios = f"/Datos/Usuarios.csv"
         
         if (self.usuario is not None):
             return True
@@ -33,7 +33,7 @@ class app:
         return False
     
     def obtenerVendedor (self, nombre, password) -> bool:
-        direccion_usuarios = f'{self.dir}/Datos/Vendedores.csv'
+        direccion_usuarios = f'/Datos/Vendedores.csv'
         
         archivo = open(direccion_usuarios)
         for info_usuario in archivo:
