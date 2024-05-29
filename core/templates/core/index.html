@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <div class="mt-6 px-6 py-12 bg-blue-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Vendedores del mes</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for vendedor in vendedores %}
+                <div>
+                    <a>
+                        <div>
+                            <img src="{% static vendedor.imagen %}" class="rounded-t-xl">
+                        </div>
+
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ vendedor.nombre }}</h2>
+                            <p class="text-gray-500">Ventas en el mes: {{ vendedor.ventas }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mt-6 px-6 py-12 bg-green-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Productos más vendidos</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in items %}
+                <div>
+                    <a href="{% url 'item:detail' item.ID %}">
+                        <div>
+                            <img src="{% static item.imagen %}" class="rounded-t-xl">
+                        </div>
+
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ item.nombre }}</h2>
+                            <p class="text-gray-500">Precio: {{ item.precio }}</p>
+                            <p class="text-gray-500">Vendedor: {{ item.vendedor.nombre }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mt-6 px-6 py-12 bg-blue-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">Categorías</h2>
+
+        <div class="grid grid-cols-3 gap-3">
+            {% for category in categories %}
+                <div>
+                    <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.ID }}">
+                        <div>
+                            <img src="{% static category.imagen %}" class="rounded-t-xl">
+                        </div>
+
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ category.nombre }}</h2>
+                            <p class="text-gray-500">{{ category.cant }} productos</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

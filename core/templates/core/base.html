@@ -1,0 +1,67 @@
+<!doctype html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>{% block title %}{% endblock %} | MercaNord</title>
+    </head>
+
+    <body>
+        <nav class="py-6 px-6 flex justify-between items-center border-b border-blue-200">
+
+            <div class="col-span-1">
+                <a href="/" class="text-xl font-semibold">MercaNord</a>
+            </div>
+            
+
+            <div class="col-span-2">
+                <form method="get" action="{% url 'item:items' %}">
+                    <input name="query" class="py-4 px-20 border rounded-xl" type="text" value="{{ query }}" placeholder="Qué se te antoja hoy?">
+    
+                    <button class="mt-2 py-4 px-8 text-lg bg-green-600 text-white rounded-xl hover:bg-green-700">Buscar</button>
+                </form>
+            </div>
+
+            <div class="col-span-1">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'item:carrito' %}" class="px-6 py-3 text-lg font-semibold bg-blue-600 text-white rounded-xl hover:bg-blue-700">Carrito</a>
+                <a href="{% url 'core:inventario' %}" class="px-6 py-3 text-lg font-semibold bg-green-600 text-white rounded-xl hover:bg-green-700">Inventario</a>
+                {% else %}
+                    <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-blue-600 text-white rounded-xl hover:bg-blue-700">Registrarse</a>
+                    <a href="{% url 'core:login' %}" class="px-6 py-3 text-lg font-semibold bg-green-600 text-white rounded-xl hover:bg-green-700">Ingresar</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <div class="px-6 py-6">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="py-6 px-6 grid grid-cols-3 bg-gray-800">
+
+            <div class="w-150 p-8 grid justify-items-center">
+                <img src="{% static 'media/page_images/Dinero.jpg' %}" class = "py-2 px-2" alt="Dinero">
+                <h2 class="text-center font-semibold text-gray-400">Métodos de Pago</h2>
+                <p class="text-center text-gray-500">Proporcionamos múltiples métodos de pago para nuestros clientes. ¡Puedes pagar en efectivo o en Nequi!</p>
+            </div>
+
+            <div class="w-150 p-8 grid justify-items-center">
+                <img src="{% static 'media/page_images/Domicilio.png' %}" class = "py-2 px-2" alt="Domicilios">
+                <h2 class="text-center font-semibold text-gray-400">Domicilios a toda la U</h2>
+                <p class="text-center text-gray-500">Nuestros vendedores informan todo el tiempo de su disponibilidad en la U. Y siempre contarás con un repartidor para que te lleve tus compras al bloque en el que estés</p>
+            </div>
+
+            <div class="w-150 p-8 grid justify-items-center">
+                <img src="{% static 'media/page_images/Candado.png' %}" class = "py-2 px-2" alt="Candado">
+                <h2 class="text-center font-semibold text-gray-400">Seguro y Confiable</h2>
+                <p class="text-center text-gray-500">Con nuestro sistema siempre estarás en manos seguras, verificamos a nuestros vendedores y tus pagos son acordados directamente con el vendedor</p>
+            </div>
+        </footer>
+    </body>
+</html>
