@@ -80,8 +80,8 @@ class app:
     
     def cargarProductos (self) -> None:
         direccion_productos = f"{self.dir}/staticfiles/Datos/Productos"
-        direccion_imagenes_prod = 'media\item_images'
-        direccion_imagenes_vend = 'media\page_images'
+        direccion_imagenes_prod = f"{self.dir}/media/item_images"
+        direccion_imagenes_vend = f"{self.dir}/media/page_images"
         direccion_vendedores = f"{self.dir}/staticfiles/Datos/Vendedores.csv"
 
         #Cargar Vendedores
@@ -97,7 +97,7 @@ class app:
             horario = datos[3]
             contacto = datos[4]
             instagram = datos[5]
-            imagen = f'{direccion_imagenes_vend}\{datos[6]}'.replace('\n', '')
+            imagen = f'{direccion_imagenes_vend}/{datos[6]}'.replace('\n', '')
 
             vendedor = Vendedor(ID, nombre, ventas, horario, contacto, instagram, imagen)
             self.vendedores.append(vendedor)
@@ -119,7 +119,7 @@ class app:
                 precio = int(datos[2])
                 descripcion = datos[3]
                 ventas = int(datos[4])
-                imagen = f'{direccion_imagenes_prod}\{datos[5]}'
+                imagen = f'{direccion_imagenes_prod}/{datos[5]}'
                 print(int(datos[6]))
                 vendedor = self.obtenerVendedores(int(datos[6]), False)[0]
                 categoria = nueva_categoria
