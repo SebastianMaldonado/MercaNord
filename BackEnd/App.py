@@ -33,7 +33,7 @@ class app:
         return False
     
     def obtenerVendedor (self, nombre, password) -> bool:
-        direccion_usuarios = f"{self.dir}/staticfiles/Datos/Vendedores.csv'
+        direccion_usuarios = f"{self.dir}/staticfiles/Datos/Vendedores.csv"
         
         archivo = open(direccion_usuarios)
         for info_usuario in archivo:
