@@ -7,14 +7,14 @@ import os
 class app:
 
     def __init__ (self):
-        self.dir = os.path.dirname(os.path.abspath(__file__))
+        self.dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.articulos = []
         self.categorias = []
         self.vendedores = []
         self.usuario = None
     
     def obtenerUsuario (self, nombre) -> bool:
-        direccion_usuarios = f"/Datos/Usuarios.csv"
+        direccion_usuarios = f"{self.dir}/staticfiles/Datos/Usuarios.csv"
         
         if (self.usuario is not None):
             return True
@@ -33,7 +33,7 @@ class app:
         return False
     
     def obtenerVendedor (self, nombre, password) -> bool:
-        direccion_usuarios = f'/Datos/Vendedores.csv'
+        direccion_usuarios = f"{self.dir}/staticfiles/Datos/Vendedores.csv'
         
         archivo = open(direccion_usuarios)
         for info_usuario in archivo:
