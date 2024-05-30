@@ -55,7 +55,7 @@
                 <div>
                     <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.ID }}">
                         <div>
-                            <img src="{% category.imagen %}" class="rounded-t-xl">
+                            <img src="{% static category.imagen %}" class="rounded-t-xl">
                         </div>
 
                         <div class="p-6 bg-white rounded-b-xl">
