@@ -111,7 +111,7 @@ class app:
             nueva_categoria = Categoria(ID, nombre)
             self.categorias.append(nueva_categoria)
 
-            archivo = open(f"{direccion_productos}\{categoria}", "r")
+            archivo = open(f"{direccion_productos}/{categoria}", "r")
             for articulos in archivo:
                 datos = articulos.split(';')
                 ID = int(datos[0])
@@ -193,15 +193,15 @@ class app:
         
         direccion_categoria = ""
         if (ID_categoria == 0):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Alimentos Dulces.csv" 
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Alimentos Dulces.csv" 
         elif (ID_categoria == 1):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Detalles.csv" 
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Detalles.csv" 
         elif (ID_categoria == 2):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Mecatos.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Mecatos.csv"
         elif (ID_categoria == 3):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Miscelania.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Miscelania.csv"
         elif (ID_categoria == 4):
-            direccion_categoria = f"{self.dir}\Datos\Productos\\Utencilios.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Utencilios.csv"
         else:
             return
                 
@@ -242,15 +242,15 @@ class app:
         # Eliminar en Archivos
         direccion_categoria = ""
         if (ID_categoria == 0):
-            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Alimentos Dulces.csv" 
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Alimentos Dulces.csv" 
         elif (ID_categoria == 1):
-            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Detalles.csv" 
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Detalles.csv" 
         elif (ID_categoria == 2):
-            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Mecatos.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Mecatos.csv"
         elif (ID_categoria == 3):
-            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Miscelania.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Miscelania.csv"
         elif (ID_categoria == 4):
-            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\\Utencilios.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos/Utencilios.csv"
         else:
             return
         
