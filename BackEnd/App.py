@@ -57,7 +57,7 @@ class app:
         return True
     
     def registrarUsuario (self, nombre, correo, password, repetir_password) -> bool:
-        direccion_usuario = f"{self.dir}\Datos\\Usuarios.csv"
+        direccion_usuario = f"{self.dir}/staticfiles/Datos/Usuarios.csv"
                 
         archivo = open(direccion_usuario, 'a')
         registro = f'\n{nombre};{correo};{password}'
@@ -66,7 +66,7 @@ class app:
         return True
     
     def registrarVendedor (self, horario, contacto, instagram, imagen) -> bool:
-        direccion_vendedores = f'{self.dir}\Datos\Vendedores.csv'
+        direccion_vendedores = f"{self.dir}/staticfiles/Datos/Vendedores.csv"
         
         archivo = open(direccion_vendedores, 'a')
         ID = len(self.vendedores)
@@ -79,10 +79,10 @@ class app:
         return True
     
     def cargarProductos (self) -> None:
-        direccion_productos = f'{self.dir}\Datos\Productos'
+        direccion_productos = f"{self.dir}/staticfiles/Datos/Productos"
         direccion_imagenes_prod = 'media\item_images'
         direccion_imagenes_vend = 'media\page_images'
-        direccion_vendedores = f'{self.dir}\Datos\Vendedores.csv'
+        direccion_vendedores = f"{self.dir}/staticfiles/Datos/Vendedores.csv"
 
         #Cargar Vendedores
         vendedor_defecto = Vendedor(0, 'Sin Vendedor registrado', 0, '00:00 - 23:59', '3000000000', '@defecto','vendedor_por_defecto')
@@ -242,15 +242,15 @@ class app:
         # Eliminar en Archivos
         direccion_categoria = ""
         if (ID_categoria == 0):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Alimentos Dulces.csv" 
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Alimentos Dulces.csv" 
         elif (ID_categoria == 1):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Detalles.csv" 
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Detalles.csv" 
         elif (ID_categoria == 2):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Mecatos.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Mecatos.csv"
         elif (ID_categoria == 3):
-            direccion_categoria = f"{self.dir}\Datos\Productos\Miscelania.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\Miscelania.csv"
         elif (ID_categoria == 4):
-            direccion_categoria = f"{self.dir}\Datos\Productos\\Utencilios.csv"
+            direccion_categoria = f"{self.dir}/staticfiles/Datos/Productos\\Utencilios.csv"
         else:
             return
         
