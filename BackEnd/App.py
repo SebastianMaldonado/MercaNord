@@ -80,8 +80,8 @@ class app:
     
     def cargarProductos (self) -> None:
         direccion_productos = f"{self.dir}/staticfiles/Datos/Productos"
-        direccion_imagenes_prod = f"{self.dir}/staticfiles/Datos/media/item_images"
-        direccion_imagenes_vend = f"{self.dir}/staticfiles/Datos/media/page_images"
+        direccion_imagenes_prod = f"/Datos/media/item_images"
+        direccion_imagenes_vend = f"/Datos/media/page_images"
         direccion_vendedores = f"{self.dir}/staticfiles/Datos/Vendedores.csv"
 
         #Cargar Vendedores
