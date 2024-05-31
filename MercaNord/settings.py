@@ -120,8 +120,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-MEDIA_URL = 'static/'
-STATIC_URL = f'{BASE_DIR}/staticfiles'
+MEDIA_URL = f'{BASE_DIR}/staticfiles/'
+STATIC_URL = f'{BASE_DIR}/staticfiles/Datos/Productos'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
